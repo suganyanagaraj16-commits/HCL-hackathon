@@ -20,7 +20,7 @@ Stages {
       gcloud auth activate=service-account
       """
      parallel {
-        stage ('Build Patient Service') {
+        stage ('Build and Push Service') {
            steps {
             script {
             docker.withRegister("https://$REGISTRY", gcr-credentials') {
@@ -32,6 +32,10 @@ Stages {
             """
             }
           }
+          stage('Deploy to kubernetes)
+            step {
+            }
+          
           
             
         
